@@ -1,0 +1,315 @@
+/* 1. Buenas prácticas: modelo de caja universal */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #fdfbf7; /* Tono suave acorde a gastronomía */
+    color: #1f2937;
+}
+
+/* 2. Estilos del Encabezado Principal */
+.encabezado-principal {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Contenedor del Logo y Título principal usando Flexbox */
+.contenedor-header {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    gap: 1.5rem;         /* Espacio entre el logo y el texto */
+    margin-bottom: 1.5rem;
+}
+
+/* Ajuste del tamaño del logo para que no sea gigante */
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%; /* Opcional: para darle un toque circular elegante */
+    border: 2px solid #d97706; /* Color cálido */
+}
+
+.encabezado-principal h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #111827;
+}
+
+/* 4. Menú de Navegación Horizontal con Flexbox */
+.menu-navegacion ul {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que bajen si la pantalla es pequeña */
+    gap: 1.5rem;           /* Separación limpia entre los enlaces */
+    list-style: none;      /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+.menu-navegacion a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Efecto hover al pasar el ratón por el menú */
+.menu-navegacion a:hover {
+    background-color: #f3f4f6;
+    color: #d97706;
+}
+
+/* Contenedor principal para centrar el contenido */
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Estilos de los títulos de sección */
+.seccion-bienvenida h2, 
+.seccion-tarjetas h2 {
+    color: #111827;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.seccion-bienvenida p {
+    color: #4b5563;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.seccion-tarjetas {
+    margin-top: 3rem;
+}
+
+/* Contenedor Flexbox para las tarjetas */
+.contenedor-tarjetas {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que bajen si la pantalla es estrecha */
+    gap: 1.5rem;           /* Espacio exacto entre tarjetas */
+    margin-top: 1rem;
+}
+
+/* Estilo individual de cada tarjeta (article) */
+.tarjeta {
+    flex: 1 1 300px;       /* Crecen, encogen y tienen un ancho base de 300px */
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover elegante al pasar el mouse por las tarjetas */
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta h3 {
+    color: #d97706;
+    margin-top: 0;
+}
+
+.tarjeta p {
+    color: #4b5563;
+    margin-bottom: 0;
+}
+
+/* Estilos para la tabla de consultas */
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-top: 1rem;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabla-datos th {
+    background-color: #f3f4f6;
+    color: #374151;
+    font-weight: 600;
+}
+
+.tabla-datos tr:last-child td {
+    border-bottom: none;
+}
+
+/* Estilos para las imágenes dentro de las tarjetas */
+.tarjeta img.imagen-tarjeta {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor principal de tarjetas */
+.contenedor-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Centra las tarjetas en la pantalla */
+}
+
+/* Cada tarjeta ocupará el 45% del ancho para forzar que queden 2 arriba y 2 abajo */
+.tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 45%;           /* Dos tarjetas por fila */
+    max-width: 400px;     /* Límite para que no se estiren demasiado */
+    flex-grow: 0;         
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajustes para las recetas */
+.receta-tarjeta h4 {
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: #d97706; /* Color cálido de acento */
+    font-size: 0.95rem;
+}
+
+.receta-tarjeta ul, 
+.receta-tarjeta ol {
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #4b5563;
+}
+
+.receta-tarjeta li {
+    margin-bottom: 0.2rem;
+}
+
+/* ==========================================
+   AGREGADOS PARA CUMPLIR CON LA GUÍA DE LA UPS
+   ========================================== */
+
+/* 1. Estado :active para el menú de navegación */
+.menu-navegacion a:active {
+    background-color: #d97706;
+    color: #ffffff;
+}
+
+/* 2. Estilos obligatorios para el Formulario de Contacto */
+.formulario-contacto {
+    background-color: #ffffff;
+    padding: 2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario-contacto fieldset {
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+    margin: 0;
+}
+
+.formulario-contacto legend {
+    font-weight: 600;
+    color: #d97706;
+    padding: 0 0.5rem;
+}
+
+.grupo-input {
+    margin-bottom: 1.25rem;
+}
+
+/* Etiquetas en bloque con márgenes y separación */
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Campos de entrada, textareas con relleno */
+.formulario-contacto input[type="text"],
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #1f2937;
+    background-color: #f9fafb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto focus obligatorio al hacer clic en el campo */
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    outline: none;
+    border-color: #d97706;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+    background-color: #ffffff;
+}
+
+/* Botón de envío */
+.boton-enviar {
+    background-color: #d97706;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-enviar:hover {
+    background-color: #b45309;
+}
+
+/* 3. Estilos para el Pie de Página */
+.pie-pagina {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: #ffffff;
+    border-top: 2px solid #e5e7eb;
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+
+.pie-pagina a {
+    color: #d97706;
+    text-decoration: none;
+}
+
+.pie-pagina a:hover {
+    text-decoration: underline;
+}
